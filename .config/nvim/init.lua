@@ -42,7 +42,9 @@ opts = {}
 
 -- set up plugins
 require("lazy").setup(plugins, opts)
-require("blame").setup()
+require("blame").setup({
+    date_format="%Y-%m-%d",
+})
 
 -- set up key mappings
 local builtin = require('telescope.builtin')
