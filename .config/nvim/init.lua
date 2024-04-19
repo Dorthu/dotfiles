@@ -33,17 +33,22 @@ plugins = {
 	{
 		"ggandor/lightspeed.nvim",
 	},
+	{
+		"FabijanZulj/blame.nvim",
+	},
 }
 opts = {}
 
 
 -- set up plugins
 require("lazy").setup(plugins, opts)
+require("blame").setup()
 
 -- set up key mappings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'tg', builtin.git_files, {})
 vim.keymap.set('n', 'tl', builtin.live_grep, {})
+vim.keymap.set('n', 'gb', ":BlameToggle<CR>");
 
 -- set up telescope mappings:
 --   open files in a new tab on enter in my favorite pickers
