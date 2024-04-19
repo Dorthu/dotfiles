@@ -25,6 +25,9 @@ plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 	},
+	{
+		"ggandor/lightspeed.nvim",
+	},
 }
 opts = {}
 
