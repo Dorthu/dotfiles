@@ -2,6 +2,7 @@
 vim.cmd("set runtimepath^=~/.vim runtimepath+=~/.vim/after")
 vim.cmd("let &packpath = &runtimepath")
 vim.cmd("source ~/.vimrc")
+vim.cmd("colorscheme vim")
 
 -- basic settings
 vim.opt.mouse = ""
