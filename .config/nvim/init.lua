@@ -7,6 +7,10 @@ vim.cmd("colorscheme vim")
 -- basic settings
 vim.opt.mouse = ""
 
+-- per-machine option discriminator
+local hostname = vim.loop.os_gethostname()
+
+
 -- lazy bootstrapping code
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -31,9 +35,12 @@ plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 	},
-	{
-		"ggandor/lightspeed.nvim",
-	},
+    -- {
+	-- 	"ggandor/lightspeed.nvim",
+	-- },
+    {
+        "ggandor/leap.nvim",
+    },
 	{
 		"FabijanZulj/blame.nvim",
 	},
@@ -53,8 +60,15 @@ plugins = {
     },
 	{
 		"rcarriga/nvim-notify",
-	}
+	},
 }
+
+if hostname == "eng-vm" then
+    table.insert(plugins, {
+            "github/copilot.vim",
+        }
+    )
+end
 opts = {}
 
 
@@ -63,6 +77,7 @@ require("lazy").setup(plugins, opts)
 require("blame").setup({
     date_format="%Y-%m-%d",
 })
+require('leap').set_default_mappings()
 
 -- set up key mappings
 local builtin = require('telescope.builtin')
