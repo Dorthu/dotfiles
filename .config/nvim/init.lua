@@ -6,6 +6,10 @@ vim.cmd("colorscheme vim")
 
 -- basic settings
 vim.opt.mouse = ""
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.number = true
 
 -- per-machine option discriminator
 local hostname = vim.loop.os_gethostname()
